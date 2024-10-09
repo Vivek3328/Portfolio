@@ -82,7 +82,7 @@ const Navbar = () => {
                             ? "text-[#cd5ff8] font-bold"
                             : ""
                         } hover:text-[#cd5ff8] flex items-center`}
-                        href="https://drive.google.com/file/d/11-8EVj5tgY8eTqeAZBkKZVZ_TSd2-eGf/view?usp=share_link"
+                        href="https://drive.google.com/file/d/1h4PIflA6mS4Qj2fg3IfS_Jr2oyt67yIb/view?usp=drive_link"
                         target="_blank"
                         rel="noreferrer"
                       >
@@ -170,7 +170,7 @@ const Navbar = () => {
                               ? "text-[#cd5ff8] font-bold"
                               : ""
                           } hover:text-[#cd5ff8] flex items-center`}
-                          href="https://drive.google.com/file/d/11-8EVj5tgY8eTqeAZBkKZVZ_TSd2-eGf/view?usp=share_link"
+                          href="https://drive.google.com/file/d/1h4PIflA6mS4Qj2fg3IfS_Jr2oyt67yIb/view?usp=drive_link"
                           target="_blank"
                           rel="noreferrer"
                         >
