@@ -1,6 +1,7 @@
 import iNotebook from "../assets/iNotebook.png";
 import sorting from "../assets/weatherApp.png";
 import weather from "../assets/Weather.png";
+import quickbite from "../assets/QuickBite.png";
 
 const ProjectData = [
   {
@@ -32,6 +33,23 @@ const ProjectData = [
     technologies: ["HTML", "CSS", "JavaScript", "Nodejs", "Express"],
     link: "https://github.com/Vivek3328/Weather-Website",
     demo: "https://weather-website-o8vj.onrender.com/",
+  },
+  {
+    id: 4,
+    title: "QuickBite",
+    imgPath: quickbite,
+    description:
+      "QuickBite is a full-stack web application I built to streamline food ordering for users and restaurant management for owners. Users can browse menus, place orders, and track delivery statuses, while restaurant owners can manage their menus and view orders. The app features a responsive UI, an intuitive checkout process, and a real-time order status system. I implemented secure JWT-based authentication, integrated Cloudinary for image uploads, and used MongoDB to store user and order data. The frontend is built with React.js, styled with Tailwind CSS, and managed with Redux, while the backend is powered by Node.js and Express.js.",
+    technologies: [
+      "Reactjs",
+      "JavaScript",
+      "Tailwand CSS",
+      "Nodejs",
+      "Express",
+      "MongoDB",
+    ],
+    link: "https://github.com/Vivek3328/QuickBite",
+    demo: "https://quick-bite-wine.vercel.app/",
   },
 ];
 
