@@ -51,7 +51,7 @@ const experiences = [
   },
   {
     role: "Software Development Intern",
-    company: "Frontend Project Team",
+    company: "Impulsive Web, Noida, Uttar Pradesh",
     duration: "Jan 2024 - Jun 2024",
     points: [
       "Contributed to a frontend product module using React and Tailwind CSS, translating UI designs into reusable and maintainable components.",
