@@ -1,75 +1,85 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { BsGithub } from "react-icons/bs";
-import { TbView360 } from "react-icons/tb";
+import { HiOutlineExternalLink } from "react-icons/hi";
+
+const PREVIEW_LEN = 140;
 
 const ProjectCard = (props) => {
-  const [show, setShow] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+
+  const { needsToggle, previewText } = useMemo(() => {
+    const desc = props?.desc || "";
+    if (desc.length <= PREVIEW_LEN) {
+      return { needsToggle: false, previewText: desc };
+    }
+    return {
+      needsToggle: true,
+      previewText: `${desc.slice(0, PREVIEW_LEN).trim()}…`,
+    };
+  }, [props?.desc]);
 
   return (
-    <div>
-      <div className="project-card-view h-full hover:bg-[#cd5ff8]">
-        <img src={props.imgPath} alt="card--img" />
-        <div className="card-body p-4 overflow-hidden">
-          <h5 className="card-title  text-center text-2xl font-bold text-[#cd5ff8]">
-            {props.title}
-          </h5>
-          <div className="py-3 px-0">
-            {props?.tech?.map((name) => (
-              <button className=" py-2 px-2 font-mono cursor-auto m-2 rounded-lg border hover:border-none hover:bg-[#cd5ff8]">
-                {name}
-              </button>
-            ))}
-          </div>
+    <article className="project-card-view">
+      <div className="project-media">
+        <img
+          src={props.imgPath}
+          alt={`${props.title} project preview`}
+          className="project-media-img"
+          loading="lazy"
+        />
+      </div>
 
-          {show ? (
-            <p className="card-text p-1 sm:p-3 text-left sm:text-justify text-white">
-              {props.desc}{" "}
-              <span
-                className="text-[#cd5ff8] cursor-pointer	"
-                onClick={() => {
-                  setShow(!show);
-                }}
-              >
-                Read Less
-              </span>
-            </p>
+      <div className="project-card-body">
+        <h2 className="project-card-title">{props.title}</h2>
+
+        <ul className="project-tech" aria-label="Technologies">
+          {props?.tech?.map((name, idx) => (
+            <li key={`${props.title}-${name}-${idx}`} className="project-tech-item">
+              {name}
+            </li>
+          ))}
+        </ul>
+
+        <div className="project-desc-wrap">
+          {expanded || !needsToggle ? (
+            <p className="project-desc">{props.desc}</p>
           ) : (
-            <p className="card-text p-1 sm:p-3 text-left sm:text-justify">
-              {props?.desc?.substring(0, 170)}......{" "}
-              <span
-                className="text-[#cd5ff8] cursor-pointer	"
-                onClick={() => {
-                  setShow(!show);
-                }}
-              >
-                Read More
-              </span>
-            </p>
+            <p className="project-desc">{previewText}</p>
           )}
-          <div className="p-2 mx-auto sm:mx sm:p-5 flex justify-around ">
-            {" "}
-            <a href={props.link} target="_blank" rel="noreferrer">
-              <button
-                className="flex items-center justify-center py-2 px-3  rounded-lg bg-[#6b1090] hover:bg-[#cd5ff8]"
-                rel="noopener noreferrer"
-              >
-                <BsGithub className="text-2xl" /> &nbsp;{" "}
-                <span className="text">{"GitHub"}</span>
-              </button>
-            </a>
-            <a href={props.demo} target="_blank" rel="noreferrer">
-              <button
-                className=" flex items-center justify-center py-2 px-2   sm:my-0 rounded-lg bg-[#6b1090] hover:bg-[#cd5ff8]"
-                rel="noopener noreferrer"
-              >
-                <TbView360 className="text-2xl" /> &nbsp;
-                <span className="text">{"Demo"}</span>
-              </button>
-            </a>
-          </div>
+          {needsToggle && (
+            <button
+              type="button"
+              className="project-toggle"
+              onClick={() => setExpanded(!expanded)}
+              aria-expanded={expanded}
+            >
+              {expanded ? "Show less" : "Read more"}
+            </button>
+          )}
+        </div>
+
+        <div className="project-actions">
+          <a
+            href={props.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-link project-link--ghost"
+          >
+            <BsGithub aria-hidden className="project-link-icon" />
+            <span>Code</span>
+          </a>
+          <a
+            href={props.demo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-link project-link--primary"
+          >
+            <HiOutlineExternalLink aria-hidden className="project-link-icon" />
+            <span>Live demo</span>
+          </a>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

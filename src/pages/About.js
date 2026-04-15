@@ -28,6 +28,39 @@ import { SiFirebase, SiNextdotjs } from "react-icons/si";
 import "./styles/About.css";
 import about_logo from "../assets/about.png";
 
+const experiences = [
+  {
+    role: "Software Engineer",
+    company: "Chat360, Pune, Maharashtra",
+    duration: "April 2025 - Ongoing",
+    points: [
+      "Engineered an SMS messaging platform using Python, Django, Celery, RabbitMQ, and Redis, processing 10,000+ messages/day with webhook-based delivery receipts and 99.9% uptime.",
+      "Integrated Instagram Business Graph API for 50+ business accounts and launched an AI-powered auto-reply engine handling 500+ daily comment interactions with high response accuracy.",
+      "Built multi-channel analytics using Redis-cached aggregations and created automated report scheduling for agent performance, serving 10+ active clients.",
+    ],
+  },
+  {
+    role: "Software Engineer",
+    company: "HexaScal Technologies, Surat, Gujarat",
+    duration: "Aug 2024 - Mar 2025",
+    points: [
+      "Developed responsive web applications using React and TypeScript in collaboration with cross-functional teams to improve UI/UX quality.",
+      "Applied industry-standard design principles to deliver user-friendly interfaces that perform consistently across devices.",
+      "Optimized frontend performance and improved Lighthouse score from 85 to 97 through faster loading, better accessibility, and enhanced mobile responsiveness.",
+    ],
+  },
+  {
+    role: "Software Development Intern",
+    company: "Frontend Project Team",
+    duration: "Jan 2024 - Jun 2024",
+    points: [
+      "Contributed to a frontend product module using React and Tailwind CSS, translating UI designs into reusable and maintainable components.",
+      "Implemented interactive features, form validations, and API integrations to improve usability and overall user flow.",
+      "Partnered with senior developers to fix UI bugs, refine responsive behavior across devices, and improve code quality through regular reviews.",
+    ],
+  },
+];
+
 const About = () => {
   return (
     <section className="mt-3">
@@ -139,6 +172,45 @@ const About = () => {
                   Gfg
                 </a>
               </div>
+            </div>
+          </div>
+          {/* Experience */}
+          <div className="experience-section w-full lg:w-3/4 mx-auto my-[5rem] px-2">
+            <h1
+              style={{ paddingBottom: "20px" }}
+              className="experience-heading text-center text-4xl "
+            >
+              <span className="text-white">Work</span>{" "}
+              <strong className="text-[#c770f0]">Experience</strong>
+            </h1>
+            <p className="experience-subtitle text-center text-gray-300 mb-8">
+              Building impactful products with clean code and thoughtful UX.
+            </p>
+            <div className="experience-list">
+              {experiences.map((experience, index) => (
+                <div
+                  key={`${experience.role}-${experience.company}`}
+                  className={`experience-row ${index % 2 === 0 ? "left" : "right"}`}
+                >
+                  <span className="experience-dot" aria-hidden="true"></span>
+                  <div className="experience-card">
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
+                      <h2 className="text-xl md:text-2xl font-semibold text-white">
+                        {experience.role}
+                      </h2>
+                      <p className="experience-duration">{experience.duration}</p>
+                    </div>
+                    <p className="experience-company">{experience.company}</p>
+                    <ul className="experience-points">
+                      {experience.points.map((point) => (
+                        <li key={point} className="experience-point">
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
           {/* Skillset */}
