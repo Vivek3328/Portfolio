@@ -18,7 +18,7 @@ const Project = () => {
           </p>
         </header>
 
-        <ul className="project-grid" role="list">
+        <ul className="project-grid">
           {ProjectData?.map((data) => (
             <li key={data.id} className="project-grid-item">
               <ProjectCard
