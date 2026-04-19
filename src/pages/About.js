@@ -54,7 +54,7 @@ const experiences = [
     company: "Impulsive Web, Noida, Uttar Pradesh",
     duration: "Jan 2024 - Jun 2024",
     points: [
-      "Contributed to a frontend product module using React and Tailwind CSS, translating UI designs into reusable and maintainable components.",
+      "Contributed to a frontend product module using React, TypeScript and Tailwind CSS, translating UI designs into reusable and maintainable components.",
       "Implemented interactive features, form validations, and API integrations to improve usability and overall user flow.",
       "Partnered with senior developers to fix UI bugs, refine responsive behavior across devices, and improve code quality through regular reviews.",
     ],
